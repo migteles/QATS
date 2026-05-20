@@ -10,17 +10,17 @@ class TimeSync:
         self.start_time = time.perf_counter()
 
     def elapsed(self):
-        return int(time.perf_counter() - self.start_time)
+        return self.now()
 
     def now(self):
         return round(time.perf_counter() - self.start_time, 3)
 
-    def formatted(self):
+def formatted(self):
 
-        seconds = self.elapsed()
+    total_seconds = self.now()
 
-        h = seconds // 3600
-        m = (seconds % 3600) // 60
-        s = seconds % 60
+    h = int(total_seconds // 3600)
+    m = int((total_seconds % 3600) // 60)
+    s = int(total_seconds % 60)
 
-        return f"{h:02}:{m:02}:{s:02}"
+    return f"{h:02}:{m:02}:{s:02}"
